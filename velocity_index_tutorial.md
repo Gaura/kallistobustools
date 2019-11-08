@@ -175,7 +175,7 @@ $ awk 'NR==FNR{a[$1]=$2; b[$1]=$3;next} {$2=a[$1];$3=b[$1]} 1' tr2g.txt cDNA_tra
 #### 5b. Fix the INTRONS FASTA header
 ```
 $ awk '{print ">"$1"."NR" gene_id:"$2" gene_name:"$3}' cDNA_t2g.txt > cDNA_fasta_header.txt
-$ awk -v var=1 'FNR==NR{a[NR]=$0;next}{ if ($0~/^>/) {print a[var], var++} else {print $0}}' cDNA_fasta_header.txt $cDNA_fa > cDNA.correct_header.fa
+$ awk -v var=1 'FNR==NR{a[NR]=$0;next}{ if ($0~/^>/) {print a[var], var++} else {print $0}}' cDNA_fasta_header.txt cDNA.fa > cDNA.correct_header.fa
 $ head -1 cDNA.correct_header.fa
 >ENST00000456328.2.1 gene_id:ENSG00000223972.5 gene_name:DDX11L1 1
 ```
